@@ -2,7 +2,7 @@ function startAutoFitting()
 
 % 面对新的实验数据，首先需要确认两点：
 % 1. delta rho 也就是小角散射中的散射长度密度的取值，在拟合中是需要作为参数输入的，确认后需要在 {预设小角散射理论模型} 处输入；
-% 2. 程序中需要将I(q)的单位换算为cm-1，q的单位换算为nm，以及I(q)需要取对数，请在下一步 {实验数据预处理} 中对其进行处理。
+% 2. 程序中需要将I(q)的单位换算为cm-1，q的单位换算为nm-1，以及I(q)需要取对数，请在下一步 {实验数据预处理} 中对其进行处理。
 
 %% INITIALIZATION OF GLOBAL VARIABLES 声明全局变量
     global VSAS_main
@@ -137,7 +137,11 @@ function startAutoFitting()
             VB_temp           = FIT_VALUE(x_better, INFO);
             Max_Patch         = GET_MAX_PATCH(VB_temp, INFO);
             Max_Patch_XB(1,i) = Max_Patch;
-            P_Value_XB(1,i)   = P_Value_Table(INFO.Data_size+1 ,Max_Patch);
+            try
+                P_Value_XB(1,i)   = P_Value_Table(INFO.Data_size+1 ,Max_Patch);
+            catch
+                P_Value_XB(1,i)   = 0;
+            end
             CorM_XB(1,i)      = LOSS_VALUE(x_better, INFO, Loss_fun_CorMap);
             Chi2_XB(1,i)      = LOSS_VALUE(x_better, INFO, Loss_fun_MSE);
             Loss              = LOSS_VALUE(x_better, INFO, Loss_fun_CorMap);

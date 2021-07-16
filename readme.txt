@@ -23,6 +23,11 @@ Contains some necessary data files and images
 4. read the experimental data
 5. analyzing
 
+【Update log】
+2021/7/16
+1. For all three forms, the way to fit sigma is to fit the value of sigma/|log(Rm)|
+2. For sphere form, now the parameter fvΔρ^2 is fitted with its order, which means we fit log( fvΔρ^2)
+
 If there is any bug or problem please contact:
 石书欣 Shuxin SHI 
 email: ssxhcxr4691059@163.com

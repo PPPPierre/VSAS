@@ -1,8 +1,8 @@
 function ValueH = I_Sphere_Single_NoSLD(VAR, INFO)
 
-    fVrho2 = VAR.fV1rho2;
+    fVrho2 = 10 ^ VAR.fV1rho2;
     Rm     = VAR.Rm1;
-    sigma  = VAR.sigma1;
+    sigma  = VAR.sigma1 * abs(log(Rm));
     q      = INFO.Q;
     q      = reshape(q, length(q), 1);
     

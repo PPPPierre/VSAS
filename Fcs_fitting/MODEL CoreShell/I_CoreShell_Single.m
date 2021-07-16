@@ -2,7 +2,7 @@ function ValueI = I_CoreShell_Single(VAR, INFO)
 
     fV     = VAR.fV1;
     Rm     = VAR.Rm1;
-    sigma  = VAR.sigma1;
+    sigma  = VAR.sigma1 * abs(log(Rm));
     q      = INFO.Q;
     q      = reshape(q, length(q), 1);
     

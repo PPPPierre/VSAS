@@ -74,15 +74,15 @@ classdef FIT_INFO
             obj.var_range_table.Ibg_range     = [-6, 1];
             obj.var_range_table.fV_range      = [-5, -1];
             obj.var_range_table.Rm_range      = [0.3, 20];
-            obj.var_range_table.sigma_range   = [0.1, 0.8];
+            obj.var_range_table.sigma_range   = [0.1, 0.3];
             obj.var_range_table.fV2_range     = [-5, -1];
             obj.var_range_table.Rm2_range     = [0.3, 20];
-            obj.var_range_table.sigma2_range  = [0.1, 0.8];
+            obj.var_range_table.sigma2_range  = [0.1, 0.3];
             obj.var_range_table.nu_range      = [0.5, 1];
             obj.var_range_table.x_range       = [0, 1];
             obj.var_range_table.k_range       = [0.5, 3];
-            obj.var_range_table.fVrho2_range  = [0.1, 10];
-            obj.var_range_table.fV2rho2_range = [0.1, 10];
+            obj.var_range_table.fVrho2_range  = [-4, -2];
+            obj.var_range_table.fV2rho2_range = [-4, -2];
         end
         
         function obj = buildVarSymbolTable(obj)
@@ -91,15 +91,15 @@ classdef FIT_INFO
             obj.var_symbol_table.Ibg     = '$\log I_{bg}$';
             obj.var_symbol_table.fV      = '$\log f_V$';
             obj.var_symbol_table.Rm      = '$R_m$';
-            obj.var_symbol_table.sigma   = '$\sigma$';
-            obj.var_symbol_table.fV2     = '$\log f_{V2}$';
+            obj.var_symbol_table.sigma   = '$\frac{\sigma}{|\log{R_m}|}$';
+            obj.var_symbol_table.fV2     = '$\log f_{V_2}$';
             obj.var_symbol_table.Rm2     = '$R_{m2}$';
-            obj.var_symbol_table.sigma2  = '$\sigma_2$';
+            obj.var_symbol_table.sigma2  = '$\frac{\sigma_2}{|\log{R_{m2}}|}$';
             obj.var_symbol_table.nu      = '$\nu$';
             obj.var_symbol_table.x       = '$x$';
             obj.var_symbol_table.k       = '$k$';
-            obj.var_symbol_table.fVrho2  = '$f_V\cdot\Delta\rho^2$';
-            obj.var_symbol_table.fV2rho2 = '$f_{V2}\cdot\Delta\rho^2$';
+            obj.var_symbol_table.fVrho2  = '$\log(f_{V}\Delta\rho^2)$';
+            obj.var_symbol_table.fV2rho2 = '$\log(f_{V_2}\Delta\rho^2)$';
         end
         
         function obj = buidFitParTable(obj)

@@ -2,7 +2,8 @@ function ValueH = I_Sphere_Single(VAR, INFO)
 
     fV     = VAR.fV1;
     Rm     = VAR.Rm1;
-    sigma  = VAR.sigma1 * abs(log(Rm));
+%     sigma  = VAR.sigma1 * abs(log(Rm));
+    sigma  = VAR.sigma1 * abs(Rm);
     q      = INFO.Q;
     q      = reshape(q, length(q), 1);
     rho    = INFO.rho;

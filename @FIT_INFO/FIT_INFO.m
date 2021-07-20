@@ -91,10 +91,12 @@ classdef FIT_INFO
             obj.var_symbol_table.Ibg     = '$\log I_{bg}$';
             obj.var_symbol_table.fV      = '$\log f_V$';
             obj.var_symbol_table.Rm      = '$R_m$';
-            obj.var_symbol_table.sigma   = '$\frac{\sigma}{|\log{R_m}|}$';
+%             obj.var_symbol_table.sigma   = '$\frac{\sigma}{|\log{R_m}|}$';
+            obj.var_symbol_table.sigma   = '$\frac{\sigma}{|{R_m}|}$';
             obj.var_symbol_table.fV2     = '$\log f_{V_2}$';
             obj.var_symbol_table.Rm2     = '$R_{m2}$';
-            obj.var_symbol_table.sigma2  = '$\frac{\sigma_2}{|\log{R_{m2}}|}$';
+%             obj.var_symbol_table.sigma2  = '$\frac{\sigma_2}{|\log{R_{m2}}|}$';
+            obj.var_symbol_table.sigma2   = '$\frac{\sigma}{|{R_m}|}$';
             obj.var_symbol_table.nu      = '$\nu$';
             obj.var_symbol_table.x       = '$x$';
             obj.var_symbol_table.k       = '$k$';

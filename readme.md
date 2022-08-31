@@ -29,17 +29,17 @@ Contains some necessary data files and images
 
 The loss function for the Baysian optimization and the gradient descending module can be chosen from Chi2 and MSE loss. The popmenu is shown as the following picture.
 
-![image](https://github.com/PPPPierre/VSAS/tree/main/imgs/Loss_function_choose.jpg)
+![image](https://github.com/PPPPierre/VSAS/blob/main/imgs/Loss_function_choose.jpg)
 
 The fomulas for two loss functions are shown as below.
 
-![image](https://github.com/PPPPierre/VSAS/tree/main/imgs/loss_functions.jpg)
+![image](https://github.com/PPPPierre/VSAS/blob/main/imgs/loss_functions.jpg)
 
 2. Generate distribution visualization with incertitude
 
 Now the output contains a figure for showing the distribution of particle size with incertitude, which gives the result summarized from all **valid fitting results**. The threshold for defining **valid fitting result** is shown as the following picture.
 
-![image](https://github.com/PPPPierre/VSAS/tree/main/imgs/Loss_threshold.jpg)
+![image](https://github.com/PPPPierre/VSAS/blob/main/imgs/Loss_threshold.jpg)
 
 - For Chi2 loss, we recommand to set the threshold between 1 and 10.
 

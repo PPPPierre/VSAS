@@ -125,7 +125,7 @@ classdef FIT_INFO
             obj.GS_opt_table.search_mode  = 'Random';                                % ����Ҫ��������ģʽ 'No Random'
         % Program parameters
             obj.program_par_table.fit_times  = 5;
-            obj.program_par_table.stop_loss  = 1;
+            obj.program_par_table.stop_loss  = 10;
             obj.program_par_table.check_limit = 0;
             obj.program_par_table.plot_num    = 1;
             obj.program_par_table.loss_type = 'Chi2';

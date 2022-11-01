@@ -1,5 +1,5 @@
 function [ParRange, weight_reg, VarNames, VarSymbols, I_Priciple] = INFO_BUILDING_CoreShell(par_range_table, model_table, symbol_table)
-    [ParRange, weight_reg, VarNames, VarSymbols, ~] = INFO_BUILDING_Sphere(par_range_table,model_table,symbol_table);
+    [ParRange, weight_reg, VarNames, VarSymbols, ~] = INFO_BUILDING_Sphere(par_range_table, model_table, symbol_table);
     VarSymbols = [VarSymbols ...
                   symbol_table.nu ...
                   symbol_table.x];
@@ -8,13 +8,29 @@ function [ParRange, weight_reg, VarNames, VarSymbols, I_Priciple] = INFO_BUILDIN
                   par_range_table.x_range];
     weight_reg = [weight_reg, 0.5, 0.5];
     VarNames   = [VarNames, 'nu', 'x'];
+    
     switch model_table.distribution_mode
         case 'MonoDispersed'
-            I_Priciple = @I_CoreShell_MonoDispersed;
+            switch model_table.sld_input
+                case 'Yes'
+                    I_Priciple = @I_CoreShell_MonoDispersed;
+                case 'No'
+                    I_Priciple = @I_CoreShell_MonoDispersed_NoSLD;
+            end
         case 'Single'
-            I_Priciple = @I_CoreShell_Single;
+            switch model_table.sld_input
+                case 'Yes'
+                    I_Priciple = @I_CoreShell_Single;
+                case 'No'
+                    I_Priciple = @I_CoreShell_Single_NoSLD;
+            end
         case 'Double'
-            I_Priciple = @I_CoreShell_Double;
+            switch model_table.sld_input
+                case 'Yes'
+                    I_Priciple = @I_CoreShell_Double;
+                case 'No'
+                    I_Priciple = @I_CoreShell_Double_NoSLD;
+            end
         otherwise
             ERROR_BOX('Check distribution mode name.')
     end

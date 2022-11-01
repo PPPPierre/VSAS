@@ -820,10 +820,10 @@ classdef VSAS_MAIN
                 return
             end
             
-            if obj.mode_form == '4' && obj.mode_sld == '3'
-                myMessageBox('Available in future version!');
-                return
-            end
+%             if obj.mode_form == '4' && obj.mode_sld == '3'
+%                 myMessageBox('Available in future version!');
+%                 return
+%             end
             
             obj = obj.buildVarINFO();
             obj = obj.initVarSliders();

@@ -70,7 +70,11 @@ function flag = saveFitResult(result_table, info)
             pos_sigma1 = ismember(col_names, 'sigma1');
             pos_sigma2 = ismember(col_names, 'sigma2');
             pos_fv1 = ismember(col_names, 'fV1');
-            pos_fv2 = ismember(col_names, 'fV2');
+            if sum(pos_fv1) == 0
+                pos_fv1 = ismember(col_names, 'fV1rho2');
+                pos_fv2 = ismember(col_names, 'fV2rho2');
+            else
+                pos_fv2 = ismember(col_names, 'fV2');
             for row = 1:table_size(1)
                 if report{row, pos_Rm1} > report{row, pos_Rm2} 
                     tmp_Rm2 = report{row, pos_Rm2};

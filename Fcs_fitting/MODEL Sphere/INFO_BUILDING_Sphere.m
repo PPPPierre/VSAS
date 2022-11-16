@@ -1,4 +1,4 @@
-function [ParRange, weight_reg, VarNames, VarSymbols, I_Priciple] = INFO_BUILDING_Sphere(par_range_table, model_table, symbol_table)  
+function model_info = INFO_BUILDING_Sphere(par_range_table, model_table, symbol_table)  
     
     VarSymbols = { symbol_table.Rm };
     ParRange   = { par_range_table.Rm_range };
@@ -109,4 +109,10 @@ function [ParRange, weight_reg, VarNames, VarSymbols, I_Priciple] = INFO_BUILDIN
         otherwise
             ERROR_BOX('Check distribution mode name.')
     end
+    model_info = table();
+    model_info.var_range = ParRange;
+    model_info.weight_reg = weight_reg;
+    model_info.var_names = VarNames;
+    model_info.var_symbols = VarSymbols;
+    model_info.I_principle_func = I_Priciple;
 end

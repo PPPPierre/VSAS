@@ -175,7 +175,16 @@ classdef FIT_INFO
                 
             switch obj.model_table.form_type
                 case 'Sphere'
-                    [obj.var_range, obj.weight_reg, obj.var_names, obj.var_symbols, obj.I_principle_func] = INFO_BUILDING_Sphere(obj.var_range_table, obj.model_table, obj.var_symbol_table);
+                    model_info = INFO_BUILDING_Sphere(obj.var_range_table, obj.model_table, obj.var_symbol_table);
+                    obj.var_range = model_info.var_range;
+                    obj.weight_reg = model_info.weight_reg;
+                    obj.var_names = model_info.var_names;
+                    obj.var_symbols = model_info.var_symbols;
+                    obj.I_principle_func = model_info.I_principle_func;
+                    q = reshape(obj.INFO.Q, length(obj.INFO.Q), 1);
+                    obj.INFO.R = obj.INFO.size_space;
+                    obj.INFO.V = VOLUME_Sphere(obj.INFO.R);
+                    obj.INFO.i = {INT_SINGLE_Sphere(q, obj.INFO.R)};
 
                 case 'CoreShell'
                     [obj.var_range, obj.weight_reg, obj.var_names, obj.var_symbols, obj.I_principle_func] = INFO_BUILDING_CoreShell(obj.var_range_table, obj.model_table, obj.var_symbol_table);
@@ -275,14 +284,16 @@ classdef FIT_INFO
         end
         
         function obj = loadData(obj, data)
-            obj.INFO.Q = (data(:,1))'; 
-            obj.INFO.E = (data(:, 2))';
+            obj.INFO.Q = (data(:,1))';
+            obj.INFO.E = (data(:,2))';
             obj.INFO.E_log = log(data(:,2))';
             obj.INFO.dE = (data(:, 3))';
             obj.INFO.dE_log = (1/data(:,2)*data(:,3))';
             obj.INFO.dt_detect_scale_min = 1/max(obj.INFO.Q);
             obj.INFO.dt_detect_scale_max = max(1/min(obj.INFO.Q), 1/mean(diff(obj.INFO.Q)));
             obj.INFO.Data_size = size(obj.INFO.Q, 2);
+            obj.INFO.step = 1000;
+            obj.INFO.size_space = linspace(obj.INFO.dt_detect_scale_min, obj.INFO.dt_detect_scale_max, obj.INFO.step);
             obj.var_range_table.Rm_range = [obj.INFO.dt_detect_scale_min, obj.INFO.dt_detect_scale_max];
             obj.var_range_table.Rm2_range = [obj.INFO.dt_detect_scale_min, obj.INFO.dt_detect_scale_max];
         end

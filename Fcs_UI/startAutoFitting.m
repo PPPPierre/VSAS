@@ -66,10 +66,10 @@ function startAutoFitting()
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% START TIMING ��ʱ��ʼ
+%% START TIMING
     t = tic();
 
-%% BUIDING INFO ����趨�����Ż���Ϣ
+%% BUIDING INFO
     Mat = load(VSAS_main.FIT_INFO.model_table.material_type);
     Material = getfield(Mat,VSAS_main.FIT_INFO.model_table.material_type);
     P_Value_Table = load('P_Value_Table');

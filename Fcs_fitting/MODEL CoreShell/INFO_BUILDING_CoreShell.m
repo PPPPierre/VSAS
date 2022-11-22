@@ -1,5 +1,9 @@
 function [ParRange, weight_reg, VarNames, VarSymbols, I_Priciple] = INFO_BUILDING_CoreShell(par_range_table, model_table, symbol_table)
-    [ParRange, weight_reg, VarNames, VarSymbols, ~] = INFO_BUILDING_Sphere(par_range_table, model_table, symbol_table);
+    model_info = INFO_BUILDING_Sphere(par_range_table, model_table, symbol_table);
+    ParRange = model_info.var_range;
+    weight_reg = model_info.weight_reg;
+    VarNames = model_info.var_names;
+    VarSymbols = model_info.var_symbols;
     VarSymbols = [VarSymbols ...
                   symbol_table.nu ...
                   symbol_table.x];

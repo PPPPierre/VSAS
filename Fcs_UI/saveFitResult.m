@@ -116,6 +116,7 @@ function flag = saveFitResult(result_table, info)
 
         %% SAVE EXCEL ������������
         save([save_path,'Final Report.mat'], 'Final_report');
+        save([save_path,'Fitting_result.mat'], 'result_table');
         column_names     = result_table.Final_report.Properties.VariableNames;
         new_column_names = [column_names 'Rmin' 'Rmax'];
         new_value_cell = [table2cell(result_table.Final_report) {info.dt_detect_scale_min} {info.dt_detect_scale_max}];

@@ -32,10 +32,9 @@ function startAutoFitting()
     % data(:,1) = data(:,1).*10;                          % ��q���е�λ����
     % data(:,2) = data(:,2)./96*10000;                    % ��I(q)���е�λ����
     
-    % INFO.E should always be Log result
-    INFO.I_exp = INFO.E;
+    % Log����
+    INFO.I_exp = exp(INFO.E);
     INFO.I_exp_log = INFO.E;
-    INFO.dI_exp_log = INFO.dE;
     
     % ���ݹ�ģѹ��
     % data = REDUCE_DATA(data, 2);

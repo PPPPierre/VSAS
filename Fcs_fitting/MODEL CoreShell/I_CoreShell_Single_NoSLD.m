@@ -1,14 +1,14 @@
 function ValueI = I_CoreShell_Single_NoSLD(VAR, INFO)
 
-    fVrho2 = 10 ^ VAR.fV1rho2;
+    fVrho2 = exp(VAR.fV1rho2);
     Rm     = VAR.Rm1;
-    sigma  = VAR.sigma1 * abs(log(Rm));
+    sigma  = VAR.sigma1;
     q      = INFO.Q;
     q      = reshape(q, length(q), 1);
     
     %% Distribution of R
-    step   = 2000;
-    R      = linspace(200/step,200,step);
+    step   = 1000;
+    R      = linspace(100/step,100,step);
     H      = FunctionH(R, Rm, sigma);
     
     i      = INT_SINGLE_CoreShell(q, R, VAR, INFO);

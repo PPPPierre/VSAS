@@ -242,7 +242,11 @@ classdef FIT_INFO
                 obj.INFO.ParRangeArray      = ParRangeArray;
                 obj.INFO.ParRangeArray_Norm = ParRangeArray_Norm;
                 obj.INFO.VarNames           = obj.var_names;
-                obj.INFO.Log_VarNames       = ['C', 'Ibg', 'fV1', 'fV2'];
+                obj.INFO.Log_VarNames = [
+                    'C', 'Ibg', ...
+                    'fV1', 'fV2', ...
+                    'fV1rho2', 'fV2rho2'
+                    ];
 
             % Regulation
                 obj.INFO.lam_reg    = obj.model_table.lam_reg;

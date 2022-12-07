@@ -168,12 +168,12 @@ function startAutoFitting()
     var_value = VAR_INVERSE_NORMALIZATION(XB(Best_num,:), INFO);
     VSAS_main = VSAS_main.setVarValue(table2array(var_value));
 
-%% TOTAL TIME COST �����ܺ�ʱ
+%% TOTAL TIME COST
     Total_time = round(toc(t),2);
     Mean_time  = round(Total_time / fit_times, 2);
     cprintf(print_color, strcat('Total time used:', 32, num2str(Total_time), 's\n'));
                       
-%% OUTPUT TO USER ����û����
+%% OUTPUT TO USER
     Save_Path                 = [PathName, time_text, '\']; 
     Save_Name                 = [SampleName(1:end - 4), '-', time_text];
     report                    = OUTPUT_REPORT(Best_num, XB, Chi2_history, CorM_history, Max_Patch_XB, P_Value_XB, INFO);

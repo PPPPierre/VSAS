@@ -10,12 +10,12 @@ function User_report = OUTPUT_REPORT(Best_No, XB, Chi2, CorM, Max_Patch, P_Value
     for i = 1:row_num
         XB_array(i,:)    = XB_array(i,:).*(range_array(2,:) - range_array(1,:)) + range_array(1,:); 
         fitNo_array(i,1) = i;
-    end 
+    end
     
-    %% 将log过的参数恢复
+    %% 将log10过的参数恢复
     for i = 1:length(VariableNames)
         if ismember(VariableNames{i}, Log_Variables)
-            XB_array(:,i) = 10.^XB_array(:,i);
+            XB_array(:,i) = exp(XB_array(:,i));
         end
     end
     

@@ -2,18 +2,18 @@ function ValueI = I_CoreShell_Single(VAR, INFO)
 
     fV     = VAR.fV1;
     Rm     = VAR.Rm1;
-    sigma  = VAR.sigma1 * abs(log(Rm));
+    sigma  = VAR.sigma1;
     q      = INFO.Q;
     q      = reshape(q, length(q), 1);
     
     %% Distribution of R
-    step   = 2000;
-    R      = linspace(200/step,200,step);
+    step   = 1000;
+    R      = linspace(100/step,100,step);
     H      = FunctionH(R, Rm, sigma);
     
     i      = INT_SINGLE_CoreShell(q, R, VAR, INFO);
     V      = VOLUME_CoreShell(R);
-    PART1  = (10.^fV)/trapz(R,H.*V,2);
+    PART1  = exp(fV)/trapz(R,H.*V,2);
     PART2  = trapz(R,H.*i,2);
     ValueI = PART1 * PART2;
     ValueI = ValueI';

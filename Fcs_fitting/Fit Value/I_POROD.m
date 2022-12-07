@@ -1,6 +1,6 @@
 function I_Porod_Ibg = I_POROD(VAR, INFO)
 
-    C = 10.^VAR.C;
+    C = exp(VAR.C);
     
     switch INFO.fit_alpha
         case 'Yes'

@@ -1,5 +1,5 @@
 function Ibg = I_BG(VAR, ~)
 
-    Ibg = 10.^VAR.Ibg;
+    Ibg = exp(VAR.Ibg);
     
 end

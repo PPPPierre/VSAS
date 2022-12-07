@@ -1,6 +1,6 @@
 function ValueH = I_Sphere_Single(VAR, INFO)
 
-    fV     = 10 .^ VAR.fV1;
+    fV     = exp(VAR.fV1);
     Rm     = VAR.Rm1;
 %     sigma  = VAR.sigma1 * abs(log(Rm));
     sigma  = VAR.sigma1;

@@ -136,7 +136,6 @@ classdef VSAS_MAIN
         
         obj = clearAll(obj, name);
         [obj, res] = show(obj, name);
-        obj = showAll(obj,name);
         obj = getMainPath(obj);
         obj = initWindow(obj);
         obj = disableAll(obj, name);
@@ -419,7 +418,7 @@ classdef VSAS_MAIN
                       'Visible', 'off');
             end
             obj.flag_dis_fit_init = 1;
-            obj = obj.init_dist_config_panel('x_pos', 1125);
+            obj = obj.init_dist_config_panel('x_pos', 1200);
         end
 
         % ��ʾDisFitPanel���
@@ -452,7 +451,7 @@ classdef VSAS_MAIN
             obj.show('m_label_alpha');
             obj.show('m_menu_alpha');
             
-            obj.showAll('set_');
+            obj.show('set_vr');
         end
         
         function obj = initGuinierPanel(obj)

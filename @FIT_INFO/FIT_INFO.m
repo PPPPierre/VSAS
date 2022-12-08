@@ -71,21 +71,22 @@ classdef FIT_INFO
         end
         
         function obj = buildVarRangeTable(obj)
-            obj.var_range_table.C_range       = [-5, 0];
+            obj.var_range_table.C_range       = [-6, 0];
             obj.var_range_table.alpha_range   = [3, 4];
             obj.var_range_table.Ibg_range     = [-6, 0];
-            obj.var_range_table.fV_range      = [-5, -1];
             
+            obj.var_range_table.fV_range      = [-11, -2];
             obj.var_range_table.Rm_range      = [0.3, 20];
             obj.var_range_table.sigma_range   = [0.01, 1];
-            obj.var_range_table.fV2_range     = [-5, -1];
+            
+            obj.var_range_table.fV2_range     = [-11, -2];
             obj.var_range_table.Rm2_range     = [0.3, 20];
             obj.var_range_table.sigma2_range  = [0.01, 1];
             obj.var_range_table.nu_range      = [0.5, 1];
             obj.var_range_table.x_range       = [0, 1];
             obj.var_range_table.k_range       = [0.5, 3];
-            obj.var_range_table.fVrho2_range  = [-4, -2];
-            obj.var_range_table.fV2rho2_range = [-4, -2];
+            obj.var_range_table.fVrho2_range  = [-9, -4];
+            obj.var_range_table.fV2rho2_range = [-9, -4];
         end
         
         function obj = buildVarSymbolTable(obj)

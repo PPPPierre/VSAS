@@ -1,9 +1,9 @@
 function startAutoFitting()
 
-% ����µ�ʵ�����ݣ�������Ҫȷ�����㣺
-% 1. delta rho Ҳ����С��ɢ���е�ɢ�䳤���ܶȵ�ȡֵ
-% 2. Unit of q: nm-1 ���������� [1e-3, 10] ֮��
-% 4. I(q)��Ҫȡ����
+% 1. delta rho 
+% 2. Unit of q: nm-1 [1e-3, 10] ֮��
+% 4. I(q)
+% 5. All logarithm are based on e
 
 %% INITIALIZATION OF GLOBAL VARIABLES ����ȫ�ֱ���
     global VSAS_main

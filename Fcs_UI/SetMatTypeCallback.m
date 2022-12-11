@@ -10,6 +10,6 @@ function SetMatTypeCallback(hObject, ~)
         case 3
             set_string = 'AlScZr_SAXS_Linear';
     end
-    VSAS_main.set_model_table.material_type = set_string;
+    VSAS_main.FIT_INFO.model_table.material_type = set_string;
     
 end

@@ -8,6 +8,6 @@ function SetGSModeCallback(hObject, ~)
         case 2
             set_string = 'No Random';
     end
-    VSAS_main.set_GS_opt_table.search_mode = set_string;
+    VSAS_main.FIT_INFO.GS_opt_table.search_mode = set_string;
     
 end

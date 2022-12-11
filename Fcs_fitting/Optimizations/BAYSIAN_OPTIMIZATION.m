@@ -2,7 +2,7 @@ function [BO_result] = BAYSIAN_OPTIMIZATION(INFO, loss_func)
 
     fun_bayes = @(x)LOSS_VALUE(x, INFO, loss_func);                         % DefBine the objectif function
     ParRange  = INFO.ParRange_Norm;                                         % 归一化后的参数范围
-    Num       = INFO.ParNum;
+    Num       = INFO.ParNum;  
     VarNames  = INFO.VarNames;
 
     %% Variables declaration 声明可优化参数

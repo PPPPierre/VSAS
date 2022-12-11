@@ -114,6 +114,7 @@ classdef FIT_INFO
             obj.model_table.rho_order                 = 10;
             obj.model_table.rho                       = obj.model_table.rho_unit * 10^(obj.model_table.rho_order) / 10^(14-3.5);
             obj.model_table.alpha                     = 4;
+            obj.BO_opt_table.SkipBO                   = 0;
             obj.BO_opt_table.MaxObjectiveEvaluations  = 40;                         % ����������  10�� 20 ��30 ��40 ��50
             obj.BO_opt_table.AcquisitionFunctionName  = 'expected-improvement-plus'; % ����������    'expected-improvement', 'lower-confidence-bound'
             obj.BO_opt_table.NumSeedPoints            = 6000;                        % ��ʼ���ӵ���

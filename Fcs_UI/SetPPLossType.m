@@ -8,6 +8,6 @@ function SetPPLossType(hObject, ~)
         case 2
             set_string = 'MSE';
     end
-    VSAS_main.set_program_par_table.loss_type = set_string;
+    VSAS_main.FIT_INFO.program_par_table.loss_type = set_string;
     
 end

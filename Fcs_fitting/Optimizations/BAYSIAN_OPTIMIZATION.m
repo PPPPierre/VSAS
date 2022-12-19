@@ -1,14 +1,14 @@
 function [BO_result] = BAYSIAN_OPTIMIZATION(INFO, loss_func)
 
-    fun_bayes = @(x)LOSS_VALUE(x, INFO, loss_func);                         % DefBine the objectif function
-    ParRange  = INFO.ParRange_Norm;                                         % 归一化后的参数范围
+    fun_bayes = @(x)LOSS_VALUE(x, INFO, loss_func);                    % DefBine the objectif function
+    ParRange  = INFO.ParRange;                                         % 参数范围
     Num       = INFO.ParNum;  
     VarNames  = INFO.VarNames;
 
     %% Variables declaration 声明可优化参数
-    Var = [];
+    Var = repmat(optimizableVariable, Num);
     for i = 1:Num 
-        Var = [Var optimizableVariable(VarNames{i}, ParRange{i})];
+        Var(i) = optimizableVariable(VarNames{i}, ParRange{i});
     end
 
     %% BAYES optimisation

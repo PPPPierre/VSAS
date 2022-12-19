@@ -1,7 +1,6 @@
 function res = LOSS_CorMap(V, E, VAR, INFO)
     
     MSE = LOSS_MSE(V, E);
-   %% ÕýÔòÏî
     X = table2array(VAR);
     M = GOTO_ORDER(X, GET_ORDER(1)).*INFO.weight_reg;
     MOD = INFO.lam_reg*sum(M.^2);

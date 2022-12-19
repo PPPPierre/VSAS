@@ -95,7 +95,6 @@ classdef VSAS_MAIN
         % ������ر��� dt = data
         dt_E_data_raw;
         dt_E_data;
-        dt_I;
         dt_q_min
         dt_q_max;
         dt_E_max;
@@ -268,23 +267,16 @@ classdef VSAS_MAIN
         function obj = rawDataParse(obj)
             data_size = size(obj.dt_E_data_raw);
             obj.dt_E_data = obj.dt_E_data_raw;
+            obj.I = 
             if obj.flag_lnI == 1
                 obj.dt_E_data(:,2) = log(obj.dt_E_data_raw(:,2)); % ln ����
-                obj.dt_I = obj.dt_E_data_raw(:,2);
-            else
-                obj.dt_I = exp(obj.dt_E_data_raw(:,2));
+                if data_size(2) >= 3
+                    obj.dt_E_data(:,3) = (1/obj.dt_E_data_raw(:,2)*obj.dt_E_data_raw(:,3));
+                end
             end
-            
-            if data_size(2) >= 3
-                obj.dt_E_data(:,3) = ones(data_size(1), 1) ./ obj.dt_I .* obj.dt_E_data_raw(:,3);
-            else
-                obj.dt_E_data(:,3) = ones(data_size(1), 1) .* 0.1;
-            end
-            
             if obj.q_unit == 2
                 obj.dt_E_data(:,1) = obj.dt_E_data(:,1) * 10;
             end
-            
             obj.dt_q_max = max(obj.dt_E_data(:, 1));
             obj.dt_q_min = min(obj.dt_E_data(:, 1));
             obj.dt_E_max = max(obj.dt_E_data(:, 2));

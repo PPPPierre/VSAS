@@ -2,17 +2,16 @@ function ValueI = I_CoreShell_Single_NoSLD(VAR, INFO)
 
     fVrho2 = exp(VAR.fV1rho2);
     Rm     = VAR.Rm1;
-    sigma  = VAR.sigma1;
-    q      = INFO.Q;
+%     sigma  = VAR.sigma1;
+    sigma  = exp(VAR.sigma1);
+    q      = INFO.q{1};
     q      = reshape(q, length(q), 1);
     
     %% Distribution of R
-    step   = 1000;
-    R      = linspace(100/step,100,step);
+    R      = INFO.R;
     H      = FunctionH(R, Rm, sigma);
-    
     i      = INT_SINGLE_CoreShell(q, R, VAR, INFO);
-    V      = VOLUME_CoreShell(R);
+    V      = INFO.V;
     PART1  = fVrho2./trapz(R,H.*V,2);
     PART2  = trapz(R,H.*i,2);
     ValueI = PART1 * PART2;

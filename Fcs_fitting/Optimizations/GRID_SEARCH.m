@@ -2,8 +2,8 @@ function pointBest = GRID_SEARCH(x_center, INFO, loss_func)
 
     lay       = INFO.GS_point_range;
     Vic       = GET_VICINITY(x_center, 0.001, lay);
-    min_range = max(Vic(1,:), INFO.ParRangeArray_Norm{1}(1,:));
-    max_range = min(Vic(end,:), INFO.ParRangeArray_Norm{1}(2,:));
+    min_range = max(Vic(1,:), INFO.ParRangeArray{1}(1,:));
+    max_range = min(Vic(end,:), INFO.ParRangeArray{1}(2,:));
     
     switch INFO.GS_search_mode
         case 'Random'

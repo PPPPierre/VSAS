@@ -1,4 +1,4 @@
-function [ParRange, weight_reg, VarNames, VarSymbols, I_Priciple] = INFO_BUILDING_CoreShell(par_range_table, model_table, symbol_table)
+function model_info = INFO_BUILDING_CoreShell(par_range_table, model_table, symbol_table)
     model_info = INFO_BUILDING_Sphere(par_range_table, model_table, symbol_table);
     ParRange = model_info.var_range;
     weight_reg = model_info.weight_reg;
@@ -29,6 +29,14 @@ function [ParRange, weight_reg, VarNames, VarSymbols, I_Priciple] = INFO_BUILDIN
                     I_Priciple = @I_CoreShell_Single_NoSLD;
             end
         case 'Double'
+            VarSymbols = [VarSymbols ...
+                          symbol_table.nu2 ...
+                          symbol_table.x2];
+            ParRange   = [ParRange ...
+                          par_range_table.nu_range ...
+                          par_range_table.x_range];
+            weight_reg = [weight_reg, 0.5, 0.5];
+            VarNames   = [VarNames, 'nu2', 'x2'];
             switch model_table.sld_input
                 case 'Yes'
                     I_Priciple = @I_CoreShell_Double;
@@ -38,4 +46,10 @@ function [ParRange, weight_reg, VarNames, VarSymbols, I_Priciple] = INFO_BUILDIN
         otherwise
             ERROR_BOX('Check distribution mode name.')
     end
+    
+    model_info.var_range = ParRange;
+    model_info.weight_reg = weight_reg;
+    model_info.var_names = VarNames;
+    model_info.var_symbols = VarSymbols;
+    model_info.I_principle_func = I_Priciple;
 end

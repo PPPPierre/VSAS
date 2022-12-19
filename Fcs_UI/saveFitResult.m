@@ -133,7 +133,7 @@ function flag = saveFitResult(result_table, info)
             end
         end
         
-        final_report_cellarray = [new_column_names; new_value_cell];
+        final_report_cellarray = [new_column_names; new_value_cell]; 
         xlswrite([save_path, '\Final Report.xls'], final_report_cellarray);
         data_id = 1;
         DRAW_R_DISS([save_path, '\Final Report.xls'], data_id, save_path, floor(info.dt_detect_scale_max));

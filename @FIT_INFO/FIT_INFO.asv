@@ -325,14 +325,13 @@ classdef FIT_INFO
                 obj.INFO.dE_log = ones(1, data_size(1)) .* 0.1;
             end
             obj.INFO.dt_detect_scale_min = 1/max(obj.INFO.Q);
-%             obj.INFO.dt_detect_scale_max = max(1/min(obj.INFO.Q), 1/min(diff(obj.INFO.Q)));
-            obj.INFO.dt_detect_scale_max = 1/min(obj.INFO.Q);
+            obj.INFO.dt_detect_scale_max = max(1/min(obj.INFO.Q), 1/min(diff(obj.INFO.Q)));
+%             obj.INFO.dt_detect_scale_max = 1/min(obj.INFO.Q);
             obj.INFO.Data_size = size(obj.INFO.Q, 2);
             obj.INFO.step = 1000;
-%             obj.INFO.size_space = linspace(obj.INFO.dt_detect_scale_min, obj.INFO.dt_detect_scale_max, obj.INFO.step);
+            obj.INFO.size_space = linspace(obj.INFO.dt_detect_scale_min, obj.INFO.dt_detect_scale_max, obj.INFO.step);
 %             obj.INFO.size_space = linspace(0.1, obj.INFO.dt_detect_scale_max, obj.INFO.step);
-%             obj.INFO.size_space = linspace(0.1, obj.INFO.dt_detect_scale_max, obj.INFO.step);
-            obj.INFO.size_space = 0.1:0.01:200;
+            obj.INFO.size_space = linspace(0.1, obj.INFO.dt_detect_scale_max, obj.INFO.step);
             obj.var_range_table.Rm_range = [obj.INFO.dt_detect_scale_min, obj.INFO.dt_detect_scale_max];
             obj.var_range_table.Rm2_range = [obj.INFO.dt_detect_scale_min, obj.INFO.dt_detect_scale_max];
         end

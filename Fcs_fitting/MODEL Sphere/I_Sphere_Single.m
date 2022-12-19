@@ -3,7 +3,7 @@ function ValueH = I_Sphere_Single(VAR, INFO)
     fV     = exp(VAR.fV1);
     Rm     = VAR.Rm1;
 %     sigma  = VAR.sigma1 * abs(log(Rm));
-    sigma  = VAR.sigma1;
+    sigma  = exp(VAR.sigma1);
     rho    = INFO.rho;
     
 %% Distribution of R

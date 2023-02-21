@@ -62,7 +62,7 @@ Now the output contains a figure for showing the distribution of particle size w
 
 2021/7/16
 - For all three forms, the way to fit sigma is to fit the value of sigma/|log(Rm)|
-- For sphere form, now the parameter fvï¿½ï¿½ï¿½ï¿½^2 is fitted with its order, which means we fit log(fvï¿½ï¿½ï¿½ï¿½^2)
+- For sphere form, now the parameter fv¦¤¦Ñ^2 is fitted with its order, which means we fit log(fv¦¤¦Ñ^2)
 
 ## Contact
 Any bug or problem please contact:

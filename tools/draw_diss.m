@@ -55,7 +55,7 @@ R_min = 0;
 R_max = 2;
 I_min = -0.3;
 I_max = 1;
-valid_loss = 2.1;
+valid_loss = 1.4;
 % loss = 'MSE';
 loss = 'Chi2';
 

@@ -1,8 +1,12 @@
-# VSAS introduction v 1.2
+# VSAS v 1.2
 This is an algorithm used for small-angle scattering data analysis.
 It contains two modes: Guinier approach mode and Distribution fitting mode:
 - Guinier approach mode: using triditional Guinier aproche or Porod method to determine the pamameters of the model.
 - Distribution Fitting mode: fit the parameters of model based on optimization methods.
+
+## Thesis
+
+Shi S, Zhong S, Jin L, et al. [VSAS: A smart small-angle scattering data processing tool](https://www.sciencedirect.com/science/article/pii/S277318392200012X)\[J\]. Nuclear Analysis, 2022, 1(2): 100012.
 
 ## Introduction fo Folders
 - @FIT_INFO @VSAS_MAIN
@@ -62,7 +66,7 @@ Now the output contains a figure for showing the distribution of particle size w
 
 2021/7/16
 - For all three forms, the way to fit sigma is to fit the value of sigma/|log(Rm)|
-- For sphere form, now the parameter fv¦¤¦Ñ^2 is fitted with its order, which means we fit log(fv¦¤¦Ñ^2)
+- For sphere form, now the parameter fvÂ¦Â¤Â¦Ã‘^2 is fitted with its order, which means we fit log(fvÂ¦Â¤Â¦Ã‘^2)
 
 ## Contact
 Any bug or problem please contact:
